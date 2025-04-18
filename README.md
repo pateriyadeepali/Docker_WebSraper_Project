@@ -50,10 +50,10 @@ Multi-stage builds help keep the final image small and efficient by copying only
 #### Step 1. Go inside the folder where the Dockerfile is located.
 #### Step 2. Run the following command in the project directory 
 
-bash
-docker build -t scraper-app .
 
-- This command builds the Docker image once this finishes, Docker will package up everything- Node.js for scraping, Python for serving.
+- docker build -t scraper-app .
+
+->This command builds the Docker image once this finishes, Docker will package up everything- Node.js for scraping, Python for serving.
 
 ---
   
@@ -66,32 +66,35 @@ Below is the command we will use to run the container:
 docker run -e SCRAPE_URL="https://example.com" -p 5000:5000 scraper-app
 
 -> docker run – This starts a new container.
+
 -> -e SCRAPE_URL="https://example.com" – where you pass the URL you want to scrape using an environment variable called SCRAPE_URL.
+
 ->  -p 5000:5000 – This maps port 5000 of the container to port 5000 on your machine, so you can access it in your browser.
+
 ->  scraper-app – This is the name of the image. 
 
 After running this above command open the browser and put the url , you will see thescrappeddata in json format.
 
 > http:localhost:5000
 
-Note: If you are using ec2 instance of AWS, then you can also use the public IP of an instance.
-Because in the server.py file, we have mentioned that this port is open for all IP.
+- Note: If you are using ec2 instance of AWS, then you can also use the public IP of an instance.
+  Because in the server.py file, we have mentioned that this port is open for all IP.
 
-We can also push this Docker image to Docker Hub.
+#### We can also push this Docker image to Docker Hub.
 Here are the following steps:
 
-1. Log in to Docker Hub:
+### 1. Log in to Docker Hub:
    You’ll be prompted to enter your Docker Hub username and password. (Make sure your Docker an 
    account is already created.)
 
   - docker login 
 
-2. Tag your image
+### 2. Tag your image
    Docker needs your image to have a specific name format before pushing:
 
  - docker tag scraper-app deepali2712/scraper-app
 
-3. Push the image
+### 3. Push the image
    Upload your tagged image to Docker Hub:
 
  - docker push deepali2712/scraper-app
