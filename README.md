@@ -17,7 +17,8 @@ Make sure the following tools are installed on your system:
 - It takes the URL provided via the environment variable and scrapes the page.
 - The scraped data is saved in a JSON file named `scraped_data.json`.
 
- -> Here is the file link from where you can get the code: (scraper.js)
+ ➡️ [View code for scraper.js](./scraper.js)
+ 
  
  ---
 
@@ -31,7 +32,7 @@ Make sure the following tools are installed on your system:
 - A simple **Flask API** that reads `scraped_data.json` and serves it at the root endpoint `/`.
 - Once the container runs, this data will be accessible from a browser.
 
--> file link: 
+➡️ [View code for server.py](./server.py) 
 
 ---
 
@@ -41,6 +42,7 @@ We will make a multistage Dockerfile that will perform the following stages:
 - Second stage: Sets up a lightweight Python environment to host the data using Flask.
 
 Multi-stage builds help keep the final image small and efficient by copying only necessary files.
+
 [View Dockerfile](./Dockerfile)
 
 ## Procedure to make a Docker image 
